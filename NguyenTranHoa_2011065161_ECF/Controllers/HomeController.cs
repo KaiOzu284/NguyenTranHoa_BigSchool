@@ -1,9 +1,11 @@
 ﻿using NguyenTranHoa_2011065161_ECF.Models;
+using NguyenTranHoa_2011065161_ECF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Http.Controllers;
 using System.Web.Mvc;
 
 namespace NguyenTranHoa_2011065161_ECF.Controllers
@@ -21,7 +23,12 @@ namespace NguyenTranHoa_2011065161_ECF.Controllers
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
-            return View(upcommingCourses);
+            var viewModel = new CourseViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()

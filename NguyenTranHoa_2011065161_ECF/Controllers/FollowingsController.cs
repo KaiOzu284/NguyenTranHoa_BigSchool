@@ -22,15 +22,14 @@ namespace NguyenTranHoa_2011065161_ECF.Controllers
         public IHttpActionResult Follow(FollowingDto followingDto)
         {
             var userId = User.Identity.GetUserId();
-            if (_dbContext.Followings.Any(f => f.FollowerId == userId && f.FollowerId == followingDto.FolloweeId))
-                return BadRequest("Following already exists!");
-
-            var following = new Following
+            if (_dbContext.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FolloweeId))
+                return BadRequest("Following already exit");
+            var folowing = new Following
             {
                 FollowerId = userId,
-                FolloweeId = followingDto.FolloweeId
+                FolloweeId = followingDto.FolloweeId,
             };
-            _dbContext.Followings.Add(following);
+            _dbContext.Followings.Add(folowing);
             _dbContext.SaveChanges();
             return Ok();
         }

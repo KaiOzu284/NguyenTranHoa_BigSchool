@@ -12,35 +12,8 @@
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.navbar-inverse {
-    background-color: #286090;
-    border-color: #31708f;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-    color: white;
-}
-.navbar-inverse .navbar-brand {
-    color: white;
-}
 .dl-horizontal dt {
     white-space: normal;
-}
-/*Course layout*/
-.course {
-    list-style: none;
-}
-.course > li .date {
-    text-align: center;
-    background-color: cadetblue;
-    color: white;
-    width: 60px;
-    border-radius: 8px;
-}
-.course > li .details {
-    position: absolute;
-    top: auto;
-    left: 70px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -50,9 +23,52 @@ textarea {
     max-width: 280px;
 }
 
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
-    background-color: #777;
-    border-color: #fff
+.navbar-inverse {
+    background-color: #286090;
+    border-color: #286090;
 }
 
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+    }
+
+    .navbar-inverse .navbar-brand {
+        color:aqua;
+    }
+
+/*Course Layout*/
+.course {
+    list-style: none;
+}
+
+    .course > li {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+        .course > li .date {
+            text-align: center;
+            background-color: #337ab7;
+            color: white;
+            width: 60px;
+            border-radius: 8px;
+        }
+
+        .course > li .details {
+            margin-top: 10px;
+            color: black;
+            text-align: center;
+            position: absolute;
+            top: 10px;
+            left: 70px;
+        }
+
+        .course > li .action {
+            display: none;
+            left: 70px;
+            position: absolute;
+        }
+
+        .course > li:hover .action {
+            display: block;
+        }
